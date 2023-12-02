@@ -43,7 +43,7 @@ export default {
     handleUnsplashImagesLoaded(images) {
       // Actualiza la lista de artistas con las imágenes simuladas siempre y cuando se ejecute el unsplash-images-loaded 
       this.artists = images.map((image, index) => ({
-        id: index + 1,//Se utiliza el método map para iterar sobre el array de imágenes y transforme cada elemento del array
+        id: index + 1,//Se utiliza el método map para que vaya iterando sobre el array de imágenes y transforme cada elemento del array
         name: `Artist ${index + 1}`,//se coloca +1 para qie vaya colocan los artistas1 artsta2.......
         image: image.urls.regular,
         description: 'Descripción del artista...',
