@@ -1,23 +1,30 @@
 <template>
+    <!-- Contenedor principal -->
     <div class="unsplash-images">
       <div v-for="artist in artists" :key="artist.id" class="artist-card">
+           <!-- Div que almacena la foto y descripción -->
         <div class="foto" @click="showImage(artist)">
+            <!--  foto -->
           <img :src="artist.image" :alt="artist.description" class="thumbnail" />
+           <!-- breve descripcion de la foto -->
           <div class="descripcion">
             <h1>{{ artist.name }}</h1>
             <p>{{ artist.description }}</p>
           </div>
         </div>
       </div>
-  
+     <!-- Muestra una imagen en detalle -->
       <div v-if="selectedImage" class="modal" @click="hideImage">
         <div class="modal-content">
+                  <!-- Boton para cerrar  -->
           <span class="close" @click="hideImage">&times;</span>
+            <!-- Imagen seleccionada -->
           <img :src="selectedImage.image" :alt="selectedImage.description" />
+          <!-- Descripcion y boton para ver mas detalles -->
           <div class="descripcion">
             <h1>{{ selectedImage.name }}</h1>
             <p>{{ selectedImage.description }}</p>
-            <!-- Utiliza el componente router-link para navegar a la nueva vista -->
+            <!-- haremos uso del router-link para poder navegar hacia la nueva pantalla -->
             <router-link :to="{ name: 'UserImages', params: { username: selectedImage.username } }">
               <button>Ver más</button>
             </router-link>
@@ -28,31 +35,42 @@
   </template>
   
   <script>
+  /*importamos el axios para poder cargar la informacion de la api 
+  mapeamos el vuex para llevar acabo acciones  */
   import axios from 'axios';
   import { mapActions } from 'vuex';
   
   export default {
+    /*Nombre del componente*/
     name: 'UnsplashImages',
+    /*Estos son los datos del componente*/
     data() {
       return {
-        artists: [],
-        selectedImage: null,
+        artists: [], /*lista de artistas fotos extraidas de la pagina de la api*/
+        selectedImage: null,/*imagene seccionada para mostrar+*/
       };
     },
+    /**
+     * este nmetodo se usa para montarlas en la pagina y realizamos la carga de las 
+     * imagenes de la pagina unplash
+     */
     mounted() {
       this.fetchUnsplashImages();
     },
+    /**Metodos del componente */
     methods: {
       ...mapActions('user', ['storeUserInfo']),
+      /**Este metodo se usa para la optencion de las imagenes de la pagina  */
       async fetchUnsplashImages() {
         try {
+          /**realizamos el llamado a api por medio de axios  */
           const response = await axios.get('https://api.unsplash.com/photos/', {
             params: {
               client_id: 'y6h3aphBHWC_HEc5iFbbcCtLSDuVPyKg8mMCuwSSfnU',
               per_page: 50,
             },
           });
-  
+  /**Mapeamos la respues de la api para poder covertirla en un  componente */
           this.artists = response.data.map((photo) => ({
             id: photo.id,
             name: `Foto Usuario: ${photo.user.name}`,
