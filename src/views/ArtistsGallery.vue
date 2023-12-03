@@ -1,6 +1,6 @@
 <!-- ArtistsGallery.vue -->
-<template>
-    <div class="artists-gallery">
+<template><!-- Se inica la plantilla -->
+    <div class="artists-gallery"> <!-- contenedor para la clase artists-gallery -->
       <h2>Artistas</h2>
       <div class="artist-card" v-for="artist in artists" :key="artist.username"> <!-- Aquí crea un elemento <div> con la clase artist-card para cada elemento del arreglo artists. El atributo v-for itera sobre la colección de datos. El atributo :key asigna un valor único a cada elemento iterado, se usa el username de cada artista como clave. -->
         <img :src="artist.profileImage" :alt="artist.name" class="thumbnail" /> <!-- Esta parte crea un elemento <img> que muestra la imagen de perfil de cada artista -->
@@ -8,13 +8,13 @@
         <router-link :to="'/artists/' + artist.username" class="nav-button">Ver más</router-link> <!-- Esta parte crea un elemento router-link que permite navegar a otra ruta de la aplicación. -->
       </div>
     </div>
-</template>
+</template><!-- fin de la plantilla -->
   
 <script>
   import axios from 'axios'; // Importa el módulo axios
   
-  export default {
-    name: 'ArtistsGallery',
+  export default { // se exporta un objeto para el componente ArtistsGallery
+    name: 'ArtistsGallery',// se define el nombre
     data() {
       return {
         artists: [], // Esta propiedad define un arreglo vacío artists que se usará para almacenar la información de los artistas que se obtengan de la API de Unsplash
