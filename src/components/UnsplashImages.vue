@@ -105,7 +105,7 @@
   };
   </script>
   
-  <style s0coped>
+  <style scoped>
   .unsplash-images {
     display: flex;
     flex-wrap: wrap;

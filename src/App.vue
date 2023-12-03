@@ -1,5 +1,6 @@
 <template>
-  <div id="app">
+  <div id="app" :class="{ darkMode: isDarkMode }">
+    <button class="dark-mode-button" @click="toggleDarkMode">Modo Oscuro</button>
     <div class="subtitle">
       <svg>
             <text x="50%" y="50%" dy=".35em" text-anchor="middle">LE PETIT LOUVRE</text>
@@ -19,10 +20,41 @@ export default {
   components: {
     NavBarComponent,
   },
+  data() {
+    return {
+      isDarkMode: false,
+    };
+  },
+  methods: {
+    toggleDarkMode() {
+      this.isDarkMode = !this.isDarkMode;
+    },
+  },
 };
 </script>
 
-<style>
+<style>#app.dark-mode {
+  background-color: var(--oscuro); /* Cambiar a color oscuro en modo oscuro */
+  color: var(--blanco); /* Cambiar a texto blanco en modo oscuro */
+}
+
+.dark-mode-button {
+  background-color: var(--secundario); /* Color del botón en modo claro */
+  color: var(--blanco); /* Color del texto del botón en modo claro */
+}
+
+.dark-mode-button:hover {
+  background-color: var(--secundario-darker); /* Cambiar el color al pasar el ratón sobre el botón en modo claro */
+}
+
+#app.dark-mode .dark-mode-button {
+  background-color: var(--secundario-darker); /* Color del botón en modo oscuro */
+  color: var(--blanco); /* Color del texto del botón en modo oscuro */
+}
+
+#app.dark-mode .dark-mode-button:hover {
+  background-color: var(--secundario); /* Cambiar el color al pasar el ratón sobre el botón en modo oscuro */
+}
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
 
 :root {
@@ -93,4 +125,5 @@ body {
 .nav-button:hover {
   background-color: rgb(255, 78, 58); /* Cambiar el color al pasar el ratón sobre el botón */
 }
+
 </style>
