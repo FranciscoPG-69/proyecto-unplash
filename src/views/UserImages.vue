@@ -1,20 +1,20 @@
 <!-- UserImages.vue -->
-<template>
+<template><!-- Se inica la plantilla -->
     <div class="user-images"><!--Se declara el nombre de la clase--> 
       <h2>{{ username }} - Imágenes</h2> <!-- El titulo que se presentara -->
       <div v-for="image in userImages" :key="image.id" class="image-card"><!-- Se crea la llave para solicitar la iamgen respecta a si id   -->
         <img :src="image.urls.regular" :alt="image.alt_description" class="thumbnail" /><!--  Se crea un elemento para el uso de la imagen en base ala urls -->
-        <div class="description">
+        <div class="description"> <!-- contenedor de la clase description -->
           <p>{{ image.alt_description }}</p> <!--   Se usa la descripcion referente a la imagen que se ha seleccionado  -->
         </div>
       </div>
     </div>
-  </template>
+  </template><!-- fin de la plantilla -->
   
   <script>
   import axios from 'axios';// Importa el módulo axios
   
-  export default {
+  export default { //se exporta un obejto para el componenete de UserImages
     name: 'UserImages',
     data() {
       return {
