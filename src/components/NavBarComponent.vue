@@ -5,7 +5,8 @@
       class="nav-button">Inicio</router-link><!--se crea las diferentes botones que tendra la barra de navegación-->
     <router-link to="/artists"
       class="nav-button">Artista</router-link><!--se hace uso del router link para que conecte a vue router-->
-    <router-link to="/register" class="nav-button">Registro</router-link>
+      <router-link to="/colaboradores" class="nav-button">Colaboradores</router-link>
+      <router-link to="/register" class="nav-button">Registro</router-link>
   </div>
 </template>
 

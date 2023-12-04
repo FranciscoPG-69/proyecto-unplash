@@ -7,6 +7,8 @@ import RegisterView from '../views/RegisterForm.vue';
 import ArtistsGallery from '../views/ArtistsGallery.vue';
 import UserImages from '../views/UserImages.vue';
 import ArtistDetails from '../views/ArtistDetail.vue';
+import VistaColaboradores from '../views/VistaColaboradores.vue';
+
 
 //Definimos las rutas
 const routes = [{
@@ -34,6 +36,11 @@ const routes = [{
         path: '/artists/:username',
         name: 'ArtistDetails',
         component: ArtistDetails,
+    },
+    {
+        path: '/colaboradores',
+        name: 'VistaColaboradores',
+        component: VistaColaboradores,
     },
 ];
 // Crea una instancia de enrutador con la configuración proporcionada
