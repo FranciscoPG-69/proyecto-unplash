@@ -1,43 +1,43 @@
 <template>
-    <div class="artist-details">
-      <div v-if="artist">
-        <header>
-          <!-- Título que muestra el nombre del artista -->
-          <h2>{{ artist.name }} - Fotos</h2>
-          <!-- Imagen que muestra la foto de perfil del artista -->
-          <img :src="artist.profile_image.large" :alt="artist.name" class="profile-image" />
-          <!-- Párrafo que muestra la biografía del artista -->
-          <p>{{ artist.bio }}</p>
-        </header>
-        <!-- Fotos del artista -->
-        <div class="photo-container">
-          <!-- Se repite por cada foto del artista, usando v-for -->
-          <div v-for="photo in artist.photos" :key="photo.id" class="photo-card">
-            <div class="photo-wrapper" @click="openPhoto(photo)">
-              <img :src="photo.urls.regular" :alt="photo.alt_description" class="photo-thumbnail" />
-            </div>
-          </div>
-        </div>
-        <div v-if="selectedPhoto" class="modal" @click="closeModal">
-          <!-- Esto tiene el contenido del modal -->
-          <div class="modal-content">
-            <!-- Botón de cerrar el modal -->
-            <span class="close" @click="closeModal">&times;</span>
-            <!-- Muestra la foto seleccionada en el modal -->
-            <img :src="selectedPhoto.urls.regular" :alt="selectedPhoto.alt_description" class="modal-photo" />
+  <div class="artist-details">
+    <div v-if="artist">
+      <header>
+        <!-- Título que muestra el nombre del artista -->
+        <h2>{{ artist.name }} - Fotos</h2>
+        <!-- Imagen que muestra la foto de perfil del artista -->
+        <img :src="artist.profile_image.large" :alt="artist.name" class="profile-image" />
+        <!-- Párrafo que muestra la biografía del artista -->
+        <p>{{ artist.bio }}</p>
+      </header>
+      <!-- Fotos del artista -->
+      <div class="photo-container">
+        <!-- Se repite por cada foto del artista, usando v-for -->
+        <div v-for="photo in artist.photos" :key="photo.id" class="photo-card">
+          <div class="photo-wrapper" @click="openPhoto(photo)">
+            <img :src="photo.urls.regular" :alt="photo.alt_description" class="photo-thumbnail" />
           </div>
         </div>
       </div>
-      <div v-else>
-        <p>Loading...</p>
+      <div v-if="selectedPhoto" class="modal" @click="closeModal">
+        <!-- Esto tiene el contenido del modal -->
+        <div class="modal-content">
+          <!-- Botón de cerrar el modal -->
+          <span class="close" @click="closeModal">&times;</span>
+          <!-- Muestra la foto seleccionada en el modal -->
+          <img :src="selectedPhoto.urls.regular" :alt="selectedPhoto.alt_description" class="modal-photo" />
+        </div>
       </div>
     </div>
+    <div v-else>
+      <p>Loading...</p>
+    </div>
+  </div>
 </template>
 
 <script>
 import axios from 'axios'; // Importa el módulo axios
 
-export default { 
+export default {
   name: 'ArtistDetails',
   data() {
     return { // Define la función que devuelve los datos del componente, que se pueden usar en el template data
@@ -74,91 +74,91 @@ export default {
 </script>
 
 <style scoped> /* Estilo que se aplica solo al componente actual, usando el atributo scoped  */
-.artist-details {
-  max-width: 800px;
-  margin: 0 auto;
-}
+ .artist-details {
+   max-width: 800px;
+   margin: 0 auto;
+ }
 
-header {
-  text-align: center;
-}
+ header {
+   text-align: center;
+ }
 
-.profile-image {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
+ .profile-image {
+   width: 150px;
+   height: 150px;
+   border-radius: 50%;
+   margin-top: 10px;
+   margin-bottom: 10px;
+ }
 
-h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
+ h2 {
+   font-size: 2rem;
+   margin-bottom: 20px;
+ }
 
-.photo-container {
-  display: flex;
-  flex-wrap: nowrap; 
+ .photo-container {
+   display: flex;
+   flex-wrap: nowrap;
 
-}
+ }
 
-.photo-card {
-  flex: 0 0 auto; 
-  width: 33.33%; 
-  margin-right: 30px; 
-}
+ .photo-card {
+   flex: 0 0 auto;
+   width: 33.33%;
+   margin-right: 30px;
+ }
 
-.photo-card:last-child {
-  margin-right: 0; 
-}
+ .photo-card:last-child {
+   margin-right: 0;
+ }
 
-.photo-wrapper {
-  cursor: pointer;
-}
+ .photo-wrapper {
+   cursor: pointer;
+ }
 
-.photo-thumbnail {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  transition: transform 0.3s;
-}
+ .photo-thumbnail {
+   max-width: 100%;
+   height: auto;
+   border-radius: 8px;
+   transition: transform 0.3s;
+ }
 
-.photo-thumbnail:hover {
-  transform: scale(1.1);
-}
+ .photo-thumbnail:hover {
+   transform: scale(1.1);
+ }
 
-.modal {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-}
+ .modal {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: rgba(0, 0, 0, 0.7);
+ }
 
-.modal-content {
-  position: relative;
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-}
+ .modal-content {
+   position: relative;
+   background: white;
+   padding: 20px;
+   border-radius: 10px;
+   text-align: center;
+ }
 
-.modal-photo {
-  width: 100%;
-  max-height: 80vh;
-  object-fit: contain;
-}
+ .modal-photo {
+   width: 100%;
+   max-height: 80vh;
+   object-fit: contain;
+ }
 
-.close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 24px;
-  color: white;
-  cursor: pointer;
-}
+ .close {
+   position: absolute;
+   top: 10px;
+   right: 10px;
+   font-size: 24px;
+   color: white;
+   cursor: pointer;
+ }
 </style>

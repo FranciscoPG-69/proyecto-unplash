@@ -5,9 +5,12 @@
       <main>
         <h1>EXPOSICIÓN GENERAL</h1>
         <div class="divPrincipal">
-          <div v-for="artist in artists" :key="artist.id" class="foto"><!--se crea un v for para que carguen los artistas y vaya mostranto la imagen de cada artista-->
-            <router-link :to="`/artists/${artist.id}`"><!--con router link se van cargando la información de cada artista-->
-              <img :src="artist.image" width="250" height="250" alt="Obra del artista" /><!--cada imagen que se vaya cargando tendra aplicada configuración de la imagen-->
+          <div v-for="artist in artists" :key="artist.id" class="foto">
+            <!--se crea un v for para que carguen los artistas y vaya mostranto la imagen de cada artista-->
+            <router-link
+              :to="`/artists/${artist.id}`"><!--con router link se van cargando la información de cada artista-->
+              <img :src="artist.image" width="250" height="250"
+                alt="Obra del artista" /><!--cada imagen que se vaya cargando tendra aplicada configuración de la imagen-->
             </router-link>
             <div class="descripcion">
               <h1>{{ artist.name }}</h1><!--se carga el nombre de artista-->
@@ -18,7 +21,8 @@
         </div>
       </main>
     </div>
-    <UnsplashImages @unsplash-images-loaded="handleUnsplashImagesLoaded" /><!--conecta al componente donde esta la api para que cargue las imagenes-->
+    <UnsplashImages @unsplash-images-loaded="handleUnsplashImagesLoaded" />
+    <!--conecta al componente donde esta la api para que cargue las imagenes-->
   </div>
 </template>
 
@@ -29,17 +33,17 @@ import UnsplashImages from '@/components/UnsplashImages.vue';/*se importa el com
 export default {
   name: 'HomePage',
   components: {/*exportamos para que sea usado luego en algun otro lado */
-   
+
     UnsplashImages,
   },
   data() {/*importando lista de artistas vacia  */
     return {
       artists: [],
-     
+
     };
   },
   methods: {
-  
+
     handleUnsplashImagesLoaded(images) {
       // Actualiza la lista de artistas con las imágenes simuladas siempre y cuando se ejecute el unsplash-images-loaded 
       this.artists = images.map((image, index) => ({
@@ -54,10 +58,13 @@ export default {
 };
 </script>
 
-<style scoped>/*se inyectan los estilos a la pagina   */
+<style scoped>
+/*se inyectan los estilos a la pagina   */
 
 
-@media (min-width: 768px) {/*se aplican  mq para que se ajuste a las pantallas correctamente */
+@media (min-width: 768px) {
+
+  /*se aplican  mq para que se ajuste a las pantallas correctamente */
   .divPrincipal {
     margin-top: 2rem;
     display: grid;
@@ -73,5 +80,4 @@ export default {
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
   }
-}
-</style>
+}</style>
