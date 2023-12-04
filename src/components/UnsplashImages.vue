@@ -132,6 +132,8 @@ export default {
   height: 100%;
   object-fit: cover;
   transition: transform 0.3s;
+  border: 4px solid black;
+  
 }
 
 .foto:hover .thumbnail {
@@ -173,7 +175,7 @@ export default {
   position: relative;
   background: white;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 20px;
   text-align: center;
 }
 
@@ -181,6 +183,7 @@ export default {
   width: 100%;
   max-height: 80vh;
   object-fit: contain;
+  
 }
 
 .close {

@@ -28,6 +28,7 @@ export default {
         { id: 4, nombre: 'Samuel Pastrana Camarillo', foto: require('@/assets/Samuel.jpg'), informacion: 'Desarollador' },
         { id: 5, nombre: 'Alexis Santos Fernandez', foto: require('@/assets/Alexis.jpg'), informacion: 'Desarollador' },
         { id: 6, nombre: 'Jorge Salomon Cua Ek', foto: require('@/assets/Cua.jpg'), informacion: 'Desarollador' },
+        { id: 7, nombre: 'Eduardo Jose Interian Parra', foto: require('@/assets/Eduardo.jpg'), informacion: 'Desarollador' },
         // Agrega los demás colaboradores aquí
       ],
     };
@@ -41,6 +42,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  
   /* Muestra los colaboradores en filas y distribuye el espacio alrededor */
 }
 </style>

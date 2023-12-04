@@ -11,7 +11,7 @@
         <text x="50%" y="50%" dy=".35em" text-anchor="middle">LE PETIT LOUVRE</text>
       </svg>
       <!-- Título adicional de la galería de arte -->
-      <h2>galeria de arte</h2>
+      <h2>GALERIA DE ARTE</h2>
     </div>
     <!-- Componente de barra de navegación -->
     <NavBarComponent />

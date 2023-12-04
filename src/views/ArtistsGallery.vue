@@ -1,6 +1,5 @@
-<template>
-  <div class="artists-gallery">
-    <h2>Artistas</h2>
+<template>  
+  <div class="artists-gallery">  
     <div class="artist-card" v-for="artist in artists" :key="artist.username">
       <!-- Aquí crea un elemento <div> con la clase artist-card para cada elemento del arreglo artists. El atributo v-for itera sobre la colección de datos. El atributo :key asigna un valor único a cada elemento iterado, se usa el username de cada artista como clave. -->
       <img :src="artist.profileImage" :alt="artist.name" class="thumbnail" />
@@ -65,8 +64,10 @@ export default {
 .artists-gallery {
   display: flex;
   flex-wrap: wrap;
-  gap: 50px;
+  gap: 80px;
   margin-bottom: 100px;
+ 
+
   /* Agregado para dejar espacio en la parte inferior */
 }
 
@@ -82,12 +83,15 @@ export default {
   object-fit: cover;
   border-radius: 8px;
   transition: transform 0.3s;
+  border: 3px solid black;
 }
 
 .artist-card:hover .thumbnail {
   transform: scale(1.1);
+ 
 }
 
 .artists-gallery.loaded {
   opacity: 1;
+  
 }</style>
