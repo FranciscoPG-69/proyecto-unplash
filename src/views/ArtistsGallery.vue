@@ -64,7 +64,7 @@ export default {
 .artists-gallery {
   display: flex;
   flex-wrap: wrap;
-  gap: 80px;
+  gap: 50px;
   margin-bottom: 100px;
  
 

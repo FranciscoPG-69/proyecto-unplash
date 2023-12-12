@@ -69,14 +69,12 @@ export default {
 
 #app.dark-mode .dark-mode-button {
   background-color: var(--secundario-darker);
-  /* Color del botón en modo oscuro */
-  color: var(--blanco);
-  /* Color del texto del botón en modo oscuro */
+  color: var(--grisclaro); /* Cambiar el color del texto del botón en modo oscuro */
 }
 
 #app.dark-mode .dark-mode-button:hover {
-  background-color: var(--secundario);
-  /* Cambiar el color al pasar el ratón sobre el botón en modo oscuro */
+  background-color: var(--secundario-darker);
+  color: var(--grisclaro); /* Mantener el color del texto al pasar el ratón sobre el botón en modo oscuro */
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');

@@ -6,8 +6,11 @@
         <h2>{{ artist.name }} - Fotos</h2>
         <!-- Imagen que muestra la foto de perfil del artista -->
         <img :src="artist.profile_image.large" :alt="artist.name" class="profile-image" />
-        <!-- Párrafo que muestra la biografía del artista -->
-        <p>{{ artist.bio }}</p>
+        <!-- Contenedor de la biografía con fondo blanco transparente -->
+        <div class="bio-container">
+          <!-- Párrafo que muestra la biografía del artista -->
+          <p>{{ artist.bio }}</p>
+        </div>
       </header>
       <!-- Fotos del artista -->
       <div class="photo-container">
@@ -161,4 +164,24 @@ export default {
    color: white;
    cursor: pointer;
  }
+ p {
+    font-size: 2.5rem; /* Tamaño del texto de la biografía */
+    color: #333; /* Color del texto de la biografía (puedes cambiarlo según tus preferencias) */
+    margin-bottom: 20px; /* Espacio inferior */
+  }
+  
+  /* Estilos para el contenedor de la biografía */
+  .bio-container {
+    background-color: rgba(255, 255, 255, 0.8); /* Blanco con opacidad (ajusta el último valor según necesites) */
+    padding: 15px; /* Añade espacio interno para separar del contenido */
+    border-radius: 10px; /* Bordes redondeados */
+    margin-bottom: 20px; /* Espacio inferior */
+  }
+
+  /* Estilos para la biografía dentro del contenedor */
+  .bio-container p {
+    font-size: 1.7rem;
+    color: #333;
+    margin: 0; /* Elimina el margen del párrafo para evitar duplicar el espacio inferior */
+  }
 </style>
